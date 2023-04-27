@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="employeesModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="int" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="30" />
+          <Property Name="job" Type="varchar" MaxLength="30" />
+          <Property Name="manager" Type="int" />
+          <Property Name="hireddate" Type="date" />
+          <Property Name="salary" Type="float" />
+          <Property Name="commission" Type="float" />
+          <Property Name="deptno" Type="int" />
+        </EntityType>
+        <EntityContainer Name="employeesModel1StoreContainer">
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="employeesModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="Int32" Nullable="false" />
+          <Property Name="ename" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="job" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="manager" Type="Int32" />
+          <Property Name="hireddate" Type="DateTime" Precision="0" />
+          <Property Name="salary" Type="Double" />
+          <Property Name="commission" Type="Double" />
+          <Property Name="deptno" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="employeesEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="employees" EntityType="Self.employee" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="employeesModel1StoreContainer" CdmEntityContainer="employeesEntities1">
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="employeesModel1.employee">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="job" ColumnName="job" />
+                <ScalarProperty Name="manager" ColumnName="manager" />
+                <ScalarProperty Name="hireddate" ColumnName="hireddate" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="commission" ColumnName="commission" />
+                <ScalarProperty Name="deptno" ColumnName="deptno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
